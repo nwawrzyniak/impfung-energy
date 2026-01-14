@@ -1,0 +1,33 @@
+<!-- Cart Templates -->
+<template id="cartEmptyTemplate">
+  <div class="cart-empty">
+    <i class="fas fa-shopping-cart"></i>
+    <p>Dein Warenkorb ist leer</p>
+  </div>
+</template>
+
+<template id="cartItemTemplate">
+  <div class="cart-item">
+    <div class="cart-item-image">
+      <img src="" alt="" class="item-image">
+    </div>
+    <div class="cart-item-info">
+      <h4 class="item-product"></h4>
+      <p class="cart-item-size item-size"></p>
+      <p class="cart-item-price">
+        <span class="item-price"></span> € 
+        <span class="cart-item-qty item-qty"></span>
+      </p>
+    </div>
+    <div class="cart-item-controls">
+      <div class="quantity-selector">
+        <button class="qty-btn qty-minus" type="button" title="Menge reduzieren">−</button>
+        <span class="qty-display item-quantity"></span>
+        <button class="qty-btn qty-plus" type="button" title="Menge erhöhen">+</button>
+      </div>
+      <button class="cart-item-remove" type="button" title="Entfernen">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+</template>

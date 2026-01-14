@@ -10,6 +10,27 @@ const cartCountElement = document.querySelector('.cart-count');
 const cartItemsContainer = document.getElementById('cartItems');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
+// Load templates from separate file
+async function loadTemplates() {
+  try {
+    const response = await fetch('./templates/shopping-cart.html');
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    // Inject templates into the main document
+    const templates = doc.querySelectorAll('template');
+    templates.forEach(template => {
+      document.body.appendChild(template.cloneNode(true));
+    });
+  } catch (error) {
+    console.error('Failed to load templates:', error);
+  }
+}
+
+// Load templates when DOM is ready
+loadTemplates();
+
 // Toggle cart sidebar
 cartBtn.addEventListener('click', () => {
   cartSidebar.classList.toggle('active');
@@ -22,54 +43,51 @@ closeCart.addEventListener('click', () => {
 // Function to render cart items in sidebar
 function renderCartItems() {
   if (cartItems.length === 0) {
-    cartItemsContainer.innerHTML = `
-      <div class="cart-empty">
-        <i class="fas fa-shopping-cart"></i>
-        <p>Dein Warenkorb ist leer</p>
-      </div>
-    `;
+    // Clone and render empty cart template
+    const emptyTemplate = document.getElementById('cartEmptyTemplate');
+    const emptyContent = emptyTemplate.content.cloneNode(true);
+    cartItemsContainer.innerHTML = '';
+    cartItemsContainer.appendChild(emptyContent);
   } else {
-    cartItemsContainer.innerHTML = cartItems.map((item, index) => `
-      <div class="cart-item">
-        <div class="cart-item-image">
-          <img src="${item.image}" alt="${item.product}">
-        </div>
-        <div class="cart-item-info">
-          <h4>${item.product}</h4>
-          <p class="cart-item-size">${item.size}</p>
-          <p class="cart-item-price">${item.price.toFixed(2)} € <span class="cart-item-qty">x${item.quantity}</span></p>
-        </div>
-        <div class="cart-item-controls">
-          <div class="quantity-selector">
-            <button class="qty-btn qty-minus" data-index="${index}" type="button" title="Menge reduzieren">−</button>
-            <span class="qty-display">${item.quantity}</span>
-            <button class="qty-btn qty-plus" data-index="${index}" type="button" title="Menge erhöhen">+</button>
-          </div>
-          <button class="cart-item-remove" data-index="${index}" type="button" title="Entfernen">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </div>
-      </div>
-    `).join('');
-
-    // Add event listeners to quantity buttons
-    document.querySelectorAll('.qty-minus').forEach(button => {
-      button.addEventListener('click', function() {
+    // Clear container
+    cartItemsContainer.innerHTML = '';
+    
+    // Render each cart item using template
+    const itemTemplate = document.getElementById('cartItemTemplate');
+    cartItems.forEach((item, index) => {
+      const itemContent = itemTemplate.content.cloneNode(true);
+      
+      // Fill in template values
+      itemContent.querySelector('.item-image').src = item.image;
+      itemContent.querySelector('.item-image').alt = item.product;
+      itemContent.querySelector('.item-product').textContent = item.product;
+      itemContent.querySelector('.item-size').textContent = item.size;
+      itemContent.querySelector('.item-price').textContent = item.price.toFixed(2);
+      itemContent.querySelector('.item-qty').textContent = `x${item.quantity}`;
+      itemContent.querySelector('.item-quantity').textContent = item.quantity;
+      
+      // Add event listeners
+      const qtyMinusBtn = itemContent.querySelector('.qty-minus');
+      const qtyPlusBtn = itemContent.querySelector('.qty-plus');
+      const removeBtn = itemContent.querySelector('.cart-item-remove');
+      
+      qtyMinusBtn.dataset.index = index;
+      qtyPlusBtn.dataset.index = index;
+      removeBtn.dataset.index = index;
+      
+      qtyMinusBtn.addEventListener('click', function() {
         decreaseQuantity(parseInt(this.dataset.index));
       });
-    });
-
-    document.querySelectorAll('.qty-plus').forEach(button => {
-      button.addEventListener('click', function() {
+      
+      qtyPlusBtn.addEventListener('click', function() {
         increaseQuantity(parseInt(this.dataset.index));
       });
-    });
-
-    // Add event listeners to remove buttons
-    document.querySelectorAll('.cart-item-remove').forEach(button => {
-      button.addEventListener('click', function() {
+      
+      removeBtn.addEventListener('click', function() {
         removeFromCart(parseInt(this.dataset.index));
       });
+      
+      cartItemsContainer.appendChild(itemContent);
     });
   }
 }
