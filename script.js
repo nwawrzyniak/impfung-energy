@@ -31,6 +31,9 @@ function renderCartItems() {
   } else {
     cartItemsContainer.innerHTML = cartItems.map((item, index) => `
       <div class="cart-item">
+        <div class="cart-item-image">
+          <img src="${item.image}" alt="${item.product}">
+        </div>
         <div class="cart-item-info">
           <h4>${item.product}</h4>
           <p class="cart-item-size">${item.size}</p>
@@ -121,6 +124,11 @@ addToCartButtons.forEach(button => {
     const product = this.dataset.product;
     const size = this.dataset.size;
     const price = parseFloat(this.dataset.price);
+    
+    // Get the image source from the product card
+    const productCard = this.closest('.product-card');
+    const imageElement = productCard.querySelector('.product-image-content');
+    const imageSrc = imageElement ? imageElement.src : '';
 
     // Check if item already exists in cart
     const existingItem = cartItems.find(item => item.product === product && item.size === size);
@@ -134,7 +142,8 @@ addToCartButtons.forEach(button => {
         product: product,
         size: size,
         price: price,
-        quantity: 1
+        quantity: 1,
+        image: imageSrc
       });
     }
 
