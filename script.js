@@ -44,7 +44,7 @@ closeCart.addEventListener('click', () => {
 function renderCartItems() {
   if (cartItems.length === 0) {
     // Clone and render empty cart template
-    const emptyTemplate = document.getElementById('cartEmptyTemplate');
+    const emptyTemplate = document.getElementById('cart-empty-template');
     const emptyContent = emptyTemplate.content.cloneNode(true);
     cartItemsContainer.innerHTML = '';
     cartItemsContainer.appendChild(emptyContent);
@@ -53,7 +53,7 @@ function renderCartItems() {
     cartItemsContainer.innerHTML = '';
     
     // Render each cart item using template
-    const itemTemplate = document.getElementById('cartItemTemplate');
+    const itemTemplate = document.getElementById('cart-item-template');
     cartItems.forEach((item, index) => {
       const itemContent = itemTemplate.content.cloneNode(true);
       
@@ -63,12 +63,12 @@ function renderCartItems() {
       itemContent.querySelector('.item-product').textContent = item.product;
       itemContent.querySelector('.item-size').textContent = item.size;
       itemContent.querySelector('.item-price').textContent = item.price.toFixed(2);
-      itemContent.querySelector('.item-qty').textContent = `x${item.quantity}`;
-      itemContent.querySelector('.item-quantity').textContent = item.quantity;
+      itemContent.querySelector('.x-item-quantity').textContent = `x${item.quantity}`;
+      itemContent.querySelector('.chooser-item-quantity').textContent = item.quantity;
       
       // Add event listeners
-      const qtyMinusBtn = itemContent.querySelector('.qty-minus');
-      const qtyPlusBtn = itemContent.querySelector('.qty-plus');
+      const qtyMinusBtn = itemContent.querySelector('.quantity-minus');
+      const qtyPlusBtn = itemContent.querySelector('.quantity-plus');
       const removeBtn = itemContent.querySelector('.cart-item-remove');
       
       qtyMinusBtn.dataset.index = index;

@@ -1,12 +1,12 @@
 <!-- Cart Templates -->
-<template id="cartEmptyTemplate">
+<template id="cart-empty-template">
   <div class="cart-empty">
     <i class="fas fa-shopping-cart"></i>
     <p>Dein Warenkorb ist leer</p>
   </div>
 </template>
 
-<template id="cartItemTemplate">
+<template id="cart-item-template">
   <div class="cart-item">
     <div class="cart-item-image">
       <img src="" alt="" class="item-image">
@@ -16,14 +16,14 @@
       <p class="cart-item-size item-size"></p>
       <p class="cart-item-price">
         <span class="item-price"></span> € 
-        <span class="cart-item-qty item-qty"></span>
+        <span class="cart-item-quantity x-item-quantity"></span>
       </p>
     </div>
     <div class="cart-item-controls">
       <div class="quantity-selector">
-        <button class="quantity-button qty-minus" type="button" title="Menge reduzieren">−</button>
-        <span class="qty-display item-quantity"></span>
-        <button class="quantity-button qty-plus" type="button" title="Menge erhöhen">+</button>
+        <button class="quantity-button quantity-minus" type="button" title="Menge reduzieren">−</button>
+        <span class="quantity-display chooser-item-quantity"></span>
+        <button class="quantity-button quantity-plus" type="button" title="Menge erhöhen">+</button>
       </div>
       <button class="cart-item-remove" type="button" title="Entfernen">
         <i class="fas fa-trash-alt"></i>

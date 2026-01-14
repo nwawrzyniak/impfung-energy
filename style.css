@@ -598,7 +598,7 @@ footer {
   font-size: 1rem;
 }
 
-.cart-item-qty {
+.cart-item-quantity {
   font-size: 0.85rem;
   color: var(--gray);
   margin-left: 0.3rem;
@@ -637,7 +637,7 @@ footer {
   background: #e8e8e8;
 }
 
-.qty-display {
+.quantity-display {
   width: 28px;
   text-align: center;
   font-weight: 600;
