@@ -3,11 +3,11 @@ let cartCount = 0;
 let cartTotal = 0;
 let cartItems = [];
 
-const cartBtn = document.getElementById('cartBtn');
-const cartSidebar = document.getElementById('cartSidebar');
-const closeCart = document.getElementById('closeCart');
+const cartButton = document.getElementById('cart-button');
+const cartSidebar = document.getElementById('cart-sidebar');
+const closeCart = document.getElementById('close-cart');
 const cartCountElement = document.querySelector('.cart-count');
-const cartItemsContainer = document.getElementById('cartItems');
+const cartItemsContainer = document.getElementById('cart-items');
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
 // Load templates from separate file
@@ -32,7 +32,7 @@ async function loadTemplates() {
 loadTemplates();
 
 // Toggle cart sidebar
-cartBtn.addEventListener('click', () => {
+cartButton.addEventListener('click', () => {
   cartSidebar.classList.toggle('active');
 });
 

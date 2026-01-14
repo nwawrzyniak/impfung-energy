@@ -107,7 +107,7 @@ nav a:hover::after {
   align-items: center;
 }
 
-.icon-btn {
+.icon-button {
   background: none;
   border: none;
   font-size: 1.3rem;
@@ -117,7 +117,7 @@ nav a:hover::after {
   position: relative;
 }
 
-.icon-btn:hover {
+.icon-button:hover {
   color: var(--primary);
   transform: translateY(-2px);
 }
@@ -619,7 +619,7 @@ footer {
   background: #f9f9f9;
 }
 
-.qty-btn {
+.quantity-button {
   background: none;
   border: none;
   width: 28px;
@@ -633,7 +633,7 @@ footer {
   transition: all 0.2s;
 }
 
-.qty-btn:hover {
+.quantity-button:hover {
   background: #e8e8e8;
 }
 
@@ -677,7 +677,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-.checkout-btn {
+.checkout-button {
   width: 100%;
   background: var(--primary);
   color: var(--dark);
@@ -690,7 +690,7 @@ footer {
   transition: all 0.3s;
 }
 
-.checkout-btn:hover {
+.checkout-button:hover {
   background: var(--primary-dark);
   transform: scale(1.02);
 }
