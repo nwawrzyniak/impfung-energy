@@ -355,8 +355,7 @@ nav a:hover::after {
 }
 
 .product-image-content {
-  width: 30%;
-  height: auto;
+  height: 240px;
   margin-top: 20px;
 }
 
@@ -741,5 +740,9 @@ footer {
 
   .no-mobile {
     display: none;
+  }
+
+  .product-image-content {
+    height: 180px;
   }
 }
