@@ -528,9 +528,9 @@ footer {
 /* Cart Sidebar */
 .cart-sidebar {
   position: fixed;
-  right: -400px;
+  right: -450px;
   top: 0;
-  width: 400px;
+  width: 450px;
   height: 100vh;
   background: var(--white);
   box-shadow: -2px 0 20px var(--shadow);
