@@ -325,11 +325,6 @@ nav a:hover::after {
   border-color: var(--primary);
 }
 
-.product-card > * {
-  position: relative;
-  z-index: 1;
-}
-
 .product-image {
   height: 300px;
   width: auto;
