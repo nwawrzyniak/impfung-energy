@@ -14,7 +14,7 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <a href="#" class="logo">IMPFUNG ENERGY™</a>
+      <a href="#" class="logo ci-glow">IMPFUNG ENERGY™</a>
       <nav class="no-tablet no-mobile">
         <ul>
           <li><a href="#">Shop</a></li>
@@ -36,7 +36,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Power durch Wissenschaft</h1>
+      <h1 id="hero-h1" class="ci-glow">Power durch Wissenschaft</h1>
       <p>Entdecke unsere revolutionären Energy-Drinks, inspiriert von der Kraft der Immunologie. Wissenschaftlich
         formuliert für maximale Performance.</p>
       <a href="#products" class="cta-button">Jetzt entdecken</a>
@@ -45,12 +45,17 @@
 
   <!-- Products Section -->
   <section class="products" id="products">
-    <h2 class="section-title">Unsere Flavors</h2>
+    <div class="section-title-container">
+      <h2 class="section-title">Unsere Flavors</h2>
+    </div>
 
     <!-- Hepatitis -->
     <div class="flavor-section">
       <div class="flavor-header">
         <h3 class="flavor-title">Hepatitis</h3>
+      </div>
+      <div class="flavor-ingredient-text">
+        <span>Mit Zutaten aus Südostasien: Passionsfrucht, Mango, Limette</span>
       </div>
       <div class="product-grid">
         <div class="product-card">
@@ -103,6 +108,9 @@
       <div class="flavor-header">
         <h3 class="flavor-title">Ebola</h3>
       </div>
+      <div class="flavor-ingredient-text">
+        <span>Mit Zutaten aus Zentral- und Westafrika: Guave, Ananas, Affenbrotfrucht</span>
+      </div>
       <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -153,6 +161,9 @@
     <div class="flavor-section">
       <div class="flavor-header">
         <h3 class="flavor-title">Meningokokken</h3>
+      </div>
+      <div class="flavor-ingredient-text">
+        <span>Mit Zutaten aus Subsahara-Afrika: Tamarinde, Granatapfel, Dattel</span>
       </div>
       <div class="product-grid">
         <div class="product-card">
@@ -208,6 +219,9 @@
       <div class="flavor-header">
         <h3 class="flavor-title">Corona</h3>
       </div>
+      <div class="flavor-ingredient-text">
+        <span>Mit Zutaten aus China: Litschi, Yuzu, Mandarine</span>
+      </div>
       <div class="product-grid">
         <div class="product-card">
           <div class="product-image">
@@ -258,6 +272,9 @@
     <div class="flavor-section">
       <div class="flavor-header">
         <h3 class="flavor-title">Tollwut</h3>
+      </div>
+      <div class="flavor-ingredient-text">
+        <span>Mit Zutaten aus Indien: Mango, Guave, Granatapfel</span>
       </div>
       <div class="product-grid">
         <div class="product-card">
@@ -311,7 +328,8 @@
     <div class="footer-container">
       <div class="footer-section">
         <h4>IMPFUNG ENERGY™</h4>
-        <p>Power durch Wissenschaft. Entwickelt für maximale Performance.</p>
+        <p class="footer-p">Power durch Wissenschaft.</p>
+        <p class="footer-p">Entwickelt für maximale Performance.</p>
         <div class="social-icons">
           <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -356,7 +374,7 @@
   <!-- Cart Sidebar -->
   <div class="cart-sidebar" id="cart-sidebar">
     <div class="cart-header">
-      <h3>Warenkorb</h3>
+      <h3 id="shopping-cart-heading">Warenkorb</h3>
       <button class="close-cart" id="close-cart" title="Warenkorb schließen" type="button"><i
           class="fas fa-times"></i></button>
     </div>

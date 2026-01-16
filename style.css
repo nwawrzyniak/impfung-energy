@@ -48,21 +48,24 @@ header {
   font-size: 1.8rem;
   font-weight: 900;
   letter-spacing: -1px;
+  text-decoration: none;
+}
+
+.ci-glow {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: none;
   animation: glow 4s ease-in-out infinite;
 }
 
 @keyframes glow {
   0%, 100% {
-    filter: brightness(0.7);
+    filter: brightness(0.8);
   }
 
   50% {
-    filter: brightness(1.4);
+    filter: brightness(1.2);
   }
 }
 
@@ -172,7 +175,7 @@ nav a:hover::after {
   font-weight: 900;
   margin-bottom: 1rem;
   letter-spacing: -2px;
-  animation: slideDown 0.8s ease-out;
+  animation: slideDown 0.8s ease-out, glow 4s ease-in-out infinite;
 }
 
 @keyframes slideDown {
@@ -233,6 +236,10 @@ nav a:hover::after {
   padding: 0 2rem;
 }
 
+.section-title-container {
+  width: 100%;
+}
+
 .section-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
@@ -242,6 +249,8 @@ nav a:hover::after {
   margin-left: 0;
   margin-right: 0;
   letter-spacing: -1px;
+  width: fit-content;
+  justify-self: center;
 }
 
 .flavor-section {
@@ -301,6 +310,10 @@ nav a:hover::after {
   font-weight: 700;
   letter-spacing: -1px;
   margin: 0;
+}
+
+.flavor-ingredient-text {
+  margin-bottom: 2rem;
 }
 
 .product-grid {
@@ -449,6 +462,11 @@ footer {
   padding-left: 0;
 }
 
+.footer-p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -492,16 +510,21 @@ footer {
 }
 
 .cart-header {
-  padding: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cart-header h3 {
+#shopping-cart-heading {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .close-cart {
@@ -577,7 +600,7 @@ footer {
 
 .cart-item-price {
   font-weight: 600;
-  color: var(--primary);
+  color: black;
   font-size: 1rem;
 }
 
