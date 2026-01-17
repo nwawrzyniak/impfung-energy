@@ -31,9 +31,23 @@ async function loadTemplates() {
 // Load templates when DOM is ready
 loadTemplates();
 
+// Function to update free shipping message
+function updateFreeShippingMessage() {
+  const freeShippingContainer = document.getElementById('cart-free-shipping');
+  const threshold = 60;
+  
+  if (cartTotal >= threshold) {
+    freeShippingContainer.innerHTML = '<div style="background-color: #4CAF50; color: white; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"><i class="fas fa-check-circle"></i> Versand kostenlos!</div>';
+  } else {
+    const remaining = (threshold - cartTotal).toFixed(2);
+    freeShippingContainer.innerHTML = `<div style="background-color: #FFC107; color: #333; padding: 10px; border-radius: 4px; text-align: center; font-weight: bold;"><i class="fas fa-info-circle"></i> Noch ${remaining} € bis zum kostenlosen Versand</div>`;
+  }
+}
+
 // Toggle cart sidebar
 cartButton.addEventListener('click', () => {
   cartSidebar.classList.toggle('active');
+  updateFreeShippingMessage();
 });
 
 closeCart.addEventListener('click', () => {
@@ -103,6 +117,7 @@ function increaseQuantity(index) {
   document.getElementById('cartTotal').textContent = cartTotal.toFixed(2) + ' €';
 
   renderCartItems();
+  updateFreeShippingMessage();
 }
 
 // Function to decrease quantity
@@ -117,6 +132,7 @@ function decreaseQuantity(index) {
     document.getElementById('cartTotal').textContent = cartTotal.toFixed(2) + ' €';
 
     renderCartItems();
+    updateFreeShippingMessage();
   } else {
     removeFromCart(index);
   }
@@ -134,6 +150,7 @@ function removeFromCart(index) {
   document.getElementById('cartTotal').textContent = cartTotal.toFixed(2) + ' €';
 
   renderCartItems();
+  updateFreeShippingMessage();
 }
 
 // Add to cart
@@ -173,6 +190,7 @@ addToCartButtons.forEach(button => {
 
     // Render updated cart items
     renderCartItems();
+    updateFreeShippingMessage();
 
     // Visual feedback
     this.innerHTML = '<i class="fas fa-check"></i> Hinzugefügt!';
